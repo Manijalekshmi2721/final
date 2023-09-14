@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link  href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <meta name="description" content="{% block metadescription %} {% endblock %}">
+    <link rel="preconnect" href="{% static 'css/fonts.static.com' %}" >
+    <script src="https://kit.fontawesome.com/d7c04a9881.js" crossorigin="anonymous"></script>
+
+
+    <title>Login</title>
+</head>
+<body style="background-color:light">
+<form action="login" method="post">
+    {%  csrf_token %}
+<h4>
+Please provide following<br>
+</h4>
+    <input type="text" name="username" placeholder="Enter your name"><br>
+    <input type="password" name="password" placeholder="Enter the password"><br>
+    <input type="submit">
+    <a href="{% url 'register' %}">Register Here</a>
+
+<!--<a href="{% url 'register' %}">Registration</a>-->
+</form>
+
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="{% static 'js/file.js' %}"></script>
+    <title>registration</title>
+</head>
+
+<body style="background-color:light">
+    <h1 style="text-align:left">
+        Application Form
+    </h1>
+
+    <form action="application" method="post">
+
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    Name :
+
+                </td>
+                <td>
+                    <input type="text" name="username"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Date of Birth :
+                </td>
+                <td>
+                    <input type="date" name="dob"><br>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+
+                    Age :
+                </td>
+                <td>
+                    <input type="number" name="age"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    Gender :
+                </td>
+                <td>
+                    <select id="gender" name="gender">
+                        <option value="none" selected>--select--</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">other</option>
+                    </select><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Contact No :
+                </td>
+                <td>
+                    <input type="number" name="phnno"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email id :
+                </td>
+                <td>
+                    <input type="email" name="email"><br>
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    Address :
+                </td>
+                <td>
+                    <input type="text"><br>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    District :
+                </td>
+                <td>
+                    <select name="district">
+                        <option value="">Select a District</option>
+                        <option value="Alappuzha">Alappuzha</option>
+                        <option value="Kozhikode">Kozhikode</option>
+                        <option value="Kottayam">Kottayam</option>
+                        <option value="Trissur">Trissur</option>
+                        <option value="Trivandrum">Trivandrum</option>
+                    </select>
+
+                </td>
+                <tr>
+            <td>
+                Branch :
+            </td>
+            <td>
+                    <select class="branch" id="Alappuzha">
+                        <option>Select branch</option>
+                        <option value="Alpy1">Cherthala</option>
+                        <option value="Alpy2">Alappuzha</option>
+                        <option value="Alpy3">Ambalappuzha</option>
+                    </select>
+                    <select class="branch" id="Kozhikode">
+                        <option>Select branch</option>
+                        <option value="Kollam1">Kozhikod 1</option>
+                        <option value="Kollam2">Kozhikod 2</option>
+                        <option value="Kollam3">Kozhikod 3</option>
+                    </select>
+                    <select class="branch" id="Kottayam">
+                        <option>Select branch</option>
+                        <option value="Kollam1">Kottayam 1 </option>
+                        <option value="Kollam2">Kottayam 2</option>
+                        <option value="Kollam3">Kottayam 3</option>
+                    </select>
+                    <select class="branch" id="Trissur">
+                        <option>Select branch</option>
+                        <option value="Kollam1">Thrissur 1 </option>
+                        <option value="Kollam2">Thrissur 2</option>
+                        <option value="Kollam3">Thrissur 3</option>
+                    </select>
+                    <select class="branch" id="Trivandrum">
+                        <option>Select branch</option>
+                        <option value="Kollam1">Trivandrum 1 </option>
+                        <option value="Kollam2">Trivandrum 2</option>
+                        <option value="Kollam3">Trivandrum 3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Account Type :
+
+                </td>
+                <td>
+                    <select id="Account" name="Acc">
+                        <option value="">--select-- </option>
+                        <option value="saving">Savings Account</option>
+                        <option value="Curntaccnt">Current Account</option>
+                        <option value="req">Recurring deposite account</option>
+                        <option value="mny">Money Market Account</option>
+                        <option value="fxd">Fixed deposite Account</option>
+
+                    </select><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Materials provided
+                </td>
+                <td>
+                    <label><input type="checkbox" class="radio" name="1" value="cdr" checked> Credit card</label>
+                    <label><input type="checkbox" class="radio" name="1" value="chk"> Cheque</label>
+                    <label><input type="checkbox" class="radio" name="1" value="name"> Debit Caard</label>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Submit">
+                </td>
+                <td>
+                    <button type="submit" formaction="{% url 'logout'  %}">Logout</button>
+
+                </td>
+            </tr>
+
+
+
+        </table>
+
+    </form>
+</body>
+<script>
+
+    function hide_el(elements) {
+        for (var i = 0; i < elements.length; i++)
+            elements[i].style.display = 'none';
+    }
+    window.onload = function () {
+        var a = document.getElementsByName('district')[0];
+        var b = document.getElementsByClassName('branch');
+        hide_el(b);
+
+        a.onchange = function () {
+            hide_el(b);
+            var country = document.getElementById(this.value);
+            if (!country) alert('No countries!');
+            country.style.display = 'block';
+        }
+        for (var i = 0; i < b.length; i++)
+            b[i].onchange = function () {
+                hide_el(c);
+                var city = document.getElementById(this.value);
+                if (!city) alert('There are no cities in ' + this.value);
+                city.style.display = 'block';
+            }
+    }
+</script>
+
+</html>

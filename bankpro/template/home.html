@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+{% endblock %}
+
+{% block content %}
+    <div>
+      <div class="row my_row_class">
+          <div class="mx_auto">
+      </div>
+    </div>
+    </div>
+<br>
+
+<div>
+    <img class="my_image my_image_padding" src="{% static 'img/banner.jpg' %}"  alt="bank" >
+</div>
+<br>
+
+<div>
+  <p class="text-justify"> Existuje mnoho variant s pasážemi Lorem Ipsum, nicméně valná většina trpí neduhy v podobě snahy o vtipný text či použití naprosto náhodných slov, což nevypadá zrovna uvěřitelně. Pokud plánujete použít pasáž z Lorem Ipsum, měli byste mít jistotu, že v textu nebude nic, co by jej mohlo narušovat</p>
+</div>
+
+
+{% endblock %}

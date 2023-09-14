@@ -1,0 +1,65 @@
+
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li>{% if user.is_authenticated %}
+            <li>Hellow {{user.username}}</li>
+            <li><a href="logout">Logout</a></li>
+
+            {% else %}
+            <li><a href="register">Register</a></li>
+
+            <li><a href="login">Login</a></li>
+            {% endif %}
+
+                <li class="nav-item dropdown ">
+<!--         nooo {% if 'shop' in request.path %} active {% endif %}-->
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Branch
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Alappuzha" >Alappuzha</a></li>
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kozhikode" >Kozhikod</a></li>
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kottayam" >Kottayam</a></li>
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Thrissur" >Trissur</a></li>
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Trivandrum" >Trivandum</a></li>
+          </ul>
+        </li>
+            </ul>
+            <h1 class="logo">Welcome</h1>
+        </div>
+    </nav>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="#">Home</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown ">-->
+<!--&lt;!&ndash;         nooo {% if 'shop' in request.path %} active {% endif %}&ndash;&gt;-->
+<!--          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            Branch-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu">-->
+<!--            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Alappuzha" >Alappuzha</a></li>-->
+<!--            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kozhikode" >Kozhikod</a></li>-->
+<!--            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kottayam" >Kottayam</a></li>-->
+<!--            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Thrissur" >Trissur</a></li>-->
+<!--            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Trivandrum" >Trivandum</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
+
+<!--      </ul>-->
+<!--        <ul class="d-flex flex-row align-items-start justify-content-start">-->
+
+<!--        </ul>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
